@@ -15,6 +15,8 @@ const GlobalStyle = createGlobalStyle`
     svg {
       pointer-events: none;
     }
+    font-family: Verdana, sans-serif;
+    color: white;
     background-color: #18242F;
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {

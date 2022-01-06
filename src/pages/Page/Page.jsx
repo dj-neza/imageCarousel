@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import unsplash from '../../api/unsplash';
 import ImageCarousel from '../../components/ImageCarousel/ImageCarousel';
 import LoadingDots from '../../components/LoadingDots';
+import useGetImages from '../../hooks/useGetImages';
 
 const Container = styled.div`
   height: 100%;
@@ -13,22 +13,18 @@ const Container = styled.div`
 `;
 
 const Page = () => {
-  const [images, setImages] = useState(null);
+  const { images, loading, error } = useGetImages('landscape');
 
-  useEffect(() => {
-    unsplash.search
-      .getPhotos({ query: "landscape", orientation: "landscape" })
-      .then(result => {
-        setImages(result.response.results);
-      })
-      .catch(() => {
-        console.log("Error!");
-      });
-  }, []);
-
+  if (loading) {
+    return (
+      <Container>
+        <LoadingDots />
+      </Container>
+    );
+  }
   return (
     <Container>
-      {images ? <ImageCarousel images={images} /> : <LoadingDots />}
+      {images ? <ImageCarousel images={images} /> : error}
     </Container>
   );
 }
