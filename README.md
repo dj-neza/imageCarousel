@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# Image Carousel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This image carousel is a product of a quick exercise in React. The idea is to have an easy-to-use component that you can drop into various container sizes. It takes in two props:
 
-## Available Scripts
+- _images_: a list of images that should be an array of objects with **url** and **alt** properties
+- _imageFit_: a string equivalent to the values of css property **object-fit** that determines how the image is resized to fit the carousel container, default is cover
 
-In the project directory, you can run:
+The carousel styling is done using the [Styled Components](https://styled-components.com), which make it really easy to programmatically style elements. It uses transitions from the [React Spring](https://react-spring.io) animation library for a bit nicer, animated experience.
 
-### `npm start`
+To showcase its use in practice, I used the [Unsplash](https://unsplash.com) API to fetch and render some real images. To change the image query, just pass a different string to a _useGetImages hook_ in the Page.jsx file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Get started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+After pulling the project and opening it in your IDE, you should start by running a `npm install` . To actually run the project you can use `npm start` command which will run the app in the development mode, so you can open it at [http://localhost:3000](http://localhost:3000) in your browser.
 
-### `npm test`
+## What else could be done
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Since I only worked on this for a very limited amount of time, it could of course be improved a lot. Some of the things that I would have loved to add are:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **make it even more responsive** - right now it looks decent in different sizes but could be vastly improved by rendering content based on the aspect ratio of its container
+- **make it more customisable** - it would be nice to have more custom options that could be passed as props, like different modes (e.g. manual navigation with the arrow or automatic interval of image switching) or just have options to style it without changing an entire component
+- **add actions to the carousel** - would be nice to be able to add text on the image or show something on hover, add a button or maybe trigger an action when the image is clicked
+- **add theme for styling**
