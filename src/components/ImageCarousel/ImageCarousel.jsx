@@ -59,7 +59,7 @@ const ImageCarousel = ({ images, imageFit }) => {
   });
 
   const imageList = useMemo(() => images.map((img) => (
-    ({ style }) => <ImgWrapper style={style}><StyledImg imageFit={imageFit} src={img?.urls?.regular ?? ''} alt={img.alt_description} /></ImgWrapper>
+    ({ style }) => <ImgWrapper style={style}><StyledImg imageFit={imageFit} src={img.url ?? ''} alt={img.alt} /></ImgWrapper>
   )), [images, imageFit]);
 
   const onForward = useCallback(() => {

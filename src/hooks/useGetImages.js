@@ -11,7 +11,7 @@ const useGetImages = (query) => {
     unsplash.search
       .getPhotos({ query, orientation: "landscape" })
       .then(result => {
-        if (result.response) setImages(result.response?.results);
+        if (result.response) setImages(result.response?.results?.map((result) => ({ url: result?.urls?.regular ?? '', alt: result.alt_description })));
         else setError(result?.errors[0]);
       })
       .finally(() => setLoading(false));
