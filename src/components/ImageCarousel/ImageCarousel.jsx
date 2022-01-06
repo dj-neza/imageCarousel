@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
 const ArrowWrapper = styled.div`
   position: absolute;
-  top: 50%;
+  top: calc(50% - 20px);
   left: 16px;
   z-index: 200;
 `;
@@ -37,12 +37,10 @@ const ImgWrapper = styled(animated.div)`
 `;
 
 const StyledImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  object-fit: ${(props) => props.imageFit ? props.imageFit : 'cover' };
 `;
 
-const ImageCarousel = ({ images }) => {
+const ImageCarousel = ({ images, imageFit }) => {
   const [index, setIndex] = useState(0);
   const [forward, setForward] = useState(true);
   const transRef = useSpringRef();
@@ -61,8 +59,8 @@ const ImageCarousel = ({ images }) => {
   });
 
   const imageList = useMemo(() => images.map((img) => (
-    ({ style }) => <ImgWrapper style={style}><StyledImg src={img?.urls?.regular ?? ''} alt={img.alt_description} /></ImgWrapper>
-  )), [images]);
+    ({ style }) => <ImgWrapper style={style}><StyledImg imageFit={imageFit} src={img?.urls?.regular ?? ''} alt={img.alt_description} /></ImgWrapper>
+  )), [images, imageFit]);
 
   const onForward = useCallback(() => {
     setForward(true);

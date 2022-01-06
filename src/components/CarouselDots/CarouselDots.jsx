@@ -11,6 +11,7 @@ const Dots = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  z-index: 200;
 `;
 
 const Dot = styled(CircleIcon)`
